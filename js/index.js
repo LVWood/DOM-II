@@ -1,4 +1,19 @@
 // Your code goes here
+//  @Joe: one big problem, this code is definately not DRY. But as I understand it, we were discouraged from using for loops on event listeners. Is that correct? It seems like there must be a much more efficient way to streamline like-processes across similar elements.
+
+
+/*10 event types used: 
+    mousedown
+    mouseup
+    mouseover
+    mouseout
+    click
+    keyup
+    input
+    focusin
+    blur
+    contextmenu
+*/
 
 ///////////////////////////////////////
 //MOUSEDOWN & MOUSEUP for navbar
@@ -14,12 +29,14 @@ home.href = 'file:///C:/Users/lesle/Documents/CODE%20PROJECTS/DOM-II/index.html#
 
 home.addEventListener('mousedown', event => { 
     home.style.color = '#C0C0C0';
+    event.preventDefault();
 });
 home.addEventListener('mouseup', event => {
     home.style.color = '#212529';
 });
 aboutUs.addEventListener('mousedown', event => {
     aboutUs.style.color = '#C0C0C0';
+    event.preventDefault();
 });
 aboutUs.addEventListener('mouseup', event => {
     aboutUs.style.color = '#212529';
@@ -29,12 +46,14 @@ blog.addEventListener('mousedown', event => {
 });
 blog.addEventListener('mouseup', event => {
     blog.style.color = '#212529';
+    event.preventDefault();
 });
 contact.addEventListener('mousedown', event => {
     contact.style.color = '#C0C0C0';
 }); 
 contact.addEventListener('mouseup', event => {
     contact.style.color = '#212529';
+    event.preventDefault();
 });  
 contact.addEventListener('mouseup', event => {
     alert('Contact us here anytime! funbus@email.com');
@@ -47,6 +66,7 @@ const busImg = document.querySelector('.intro img');
 busImg.addEventListener('mouseover', event => {
     //console.log('we have hover');
     busImg.style.opacity = '0.5';
+    event.stopPropagation();
 });
 busImg.addEventListener('mouseout', event => {
     //console.log('we have hover');
@@ -57,6 +77,7 @@ const adventureImg = document.querySelector('.image-adventure');
 adventureImg.addEventListener('mouseover', event => {
     // console.log('we have hover');
     adventureImg.style.opacity = '0.5';
+    event.stopPropagation();
 });
 adventureImg.addEventListener('mouseout', event => {
     //console.log('we have hover');
@@ -64,11 +85,11 @@ adventureImg.addEventListener('mouseout', event => {
 });
 
 const canalImg = document.querySelector('.canal-image');
-console.log(canalImg);
 
 canalImg.addEventListener('mouseover', event => {
-    console.log('we have hover');
+    //console.log('we have hover');
     canalImg.style.opacity = '0.5';
+    event.stopPropagation();
 });
 canalImg.addEventListener('mouseout', event => {
     //console.log('we have hover');
@@ -100,9 +121,87 @@ signMeUpMountains.addEventListener('click', event => {
 signMeUpIsland.addEventListener('click', event => {
     signMeUpIsland.style.backgroundColor = '#C0C0C0';
 });
+//////////////////////////////////////////////////
+// KEYUP, INPUT, FOCUSIN, BLUR for forms
+const funFormName = document.querySelector('#funForm .formName');
+const funFormEmail = document.querySelector('#funForm .formEmail');
+
+funFormName.addEventListener('keyup', event => {
+    console.log(event.key);
+});
+funFormName.addEventListener('focusin', (event) => {
+    event.target.style.background = '#FFEBCD';
+}, true);
+funFormName.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+}, true);
+
+funFormEmail.addEventListener('keyup', event => {
+    console.log(event.key);
+});
+funFormEmail.addEventListener('focusin', (event) => {
+    event.target.style.background = '#FFEBCD';
+}, true);
+funFormEmail.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+}, true);
 
 
-const contentHeaders = document.querySelector('.text-content h2');
+const mountainFormName = document.querySelector('#mountainForm .formName');
+const mountainFormEmail = document.querySelector('#mountainForm .formEmail');
+
+mountainFormName.addEventListener('input', event => {
+    console.log(event.srcElement.value);
+});
+mountainFormName.addEventListener('focusin', (event) => {
+    event.target.style.background = '#FFEBCD';
+}, true);
+mountainFormName.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+}, true);
+
+mountainFormEmail.addEventListener('input', event => {
+    console.log(event.srcElement.value);
+});
+mountainFormEmail.addEventListener('focusin', (event) => {
+    //console.log('this is focused');
+    event.target.style.background = '#FFEBCD';
+}, true);
+mountainFormEmail.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+}, true);
 
 
+const islandFormName = document.querySelector('#islandForm .formName');
+const islandFormEmail = document.querySelector('#islandForm .formEmail');
+
+islandFormName.addEventListener('keydown', event => {
+    console.log(event.key);
+});
+islandFormName.addEventListener('focusin', (event) => {
+    //console.log('this is focused');
+    event.target.style.background = '#FFEBCD';
+}, true);
+islandFormName.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+}, true);
+
+islandFormEmail.addEventListener('keydown', event => {
+    console.log(event.key);
+});
+islandFormEmail.addEventListener('focusin', (event) => {
+    //console.log('this is focused');
+    event.target.style.background = '#FFEBCD';
+}, true);
+islandFormEmail.addEventListener('blur', (event) => {
+    event.target.style.background = '';
+}, true);
+
+/////////////////////////////
+// CONTEXTMENU on container
+
+const body = document.querySelector('body');
+body.addEventListener('contextmenu', event => {
+    alert('can I help you?');
+});
 
