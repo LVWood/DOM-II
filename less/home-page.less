@@ -92,6 +92,7 @@
     border-top: 2px dashed @navigation-border;
     display: flex;
     justify-content: space-between;
+  
 
     @media @mobile {
       flex-wrap: wrap;
@@ -100,14 +101,23 @@
     .destination {
       width: 30%;
       margin-bottom: 30px;
+   
 
       @media @mobile {
         width: 80%;
         margin: 0 auto 30px;
       }
       
+      form {
+        margin: 10px 0;
+        .formName {
+          margin: 0 0 10px 0;
+          }
+        }
+
       .btn {
         .button-creator(200px, 45px, @button-bg, @white, 1.8rem);     
+
       }
     }
   }

@@ -326,6 +326,12 @@ img {
     margin: 0 auto 30px;
   }
 }
+.home .content-pick .destination form {
+  margin: 10px 0;
+}
+.home .content-pick .destination form .formName {
+  margin: 0 0 10px 0;
+}
 .home .content-pick .destination .btn {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
