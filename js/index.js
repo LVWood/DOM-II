@@ -108,94 +108,57 @@ headLogo.addEventListener('mouseout', event => {
 // CLICK for buttons
 
 const buttons = document.querySelectorAll('.destination .btn');
-const signMeUpFun = buttons[0];
+const signMeUpFun= buttons[0];
 const signMeUpMountains = buttons[1];
 const signMeUpIsland = buttons[2];
 
-signMeUpFun.addEventListener('click', event => {
-    signMeUpFun.style.backgroundColor = '#C0C0C0';
+buttons.forEach(function(button) {
+    button.addEventListener('click', function(){
+        button.style.backgroundColor = '#C0C0C0';
+    });
 });
-signMeUpMountains.addEventListener('click', event => {
-    signMeUpMountains.style.backgroundColor = '#C0C0C0';
-});
-signMeUpIsland.addEventListener('click', event => {
-    signMeUpIsland.style.backgroundColor = '#C0C0C0';
-});
+
 //////////////////////////////////////////////////
 // KEYUP, INPUT, FOCUSIN, BLUR for forms
+function keyup(){
+    console.log(event.key);
+};
+function focusin(){
+    event.target.style.background = '#FFEBCD';
+};
+function blur(){
+    event.target.style.background = '#FFFFFF';
+};
+
 const funFormName = document.querySelector('#funForm .formName');
 const funFormEmail = document.querySelector('#funForm .formEmail');
 
-funFormName.addEventListener('keyup', event => {
-    console.log(event.key);
-});
-funFormName.addEventListener('focusin', (event) => {
-    event.target.style.background = '#FFEBCD';
-}, true);
-funFormName.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-}, true);
-
-funFormEmail.addEventListener('keyup', event => {
-    console.log(event.key);
-});
-funFormEmail.addEventListener('focusin', (event) => {
-    event.target.style.background = '#FFEBCD';
-}, true);
-funFormEmail.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-}, true);
-
+funFormName.addEventListener('keyup', keyup);
+funFormName.addEventListener('focusin', focusin, true);
+funFormName.addEventListener('blur', blur, true);
+funFormEmail.addEventListener('keyup', keyup);
+funFormEmail.addEventListener('focusin', focusin, true);
+funFormEmail.addEventListener('blur', blur, true);
 
 const mountainFormName = document.querySelector('#mountainForm .formName');
 const mountainFormEmail = document.querySelector('#mountainForm .formEmail');
 
-mountainFormName.addEventListener('input', event => {
-    console.log(event.srcElement.value);
-});
-mountainFormName.addEventListener('focusin', (event) => {
-    event.target.style.background = '#FFEBCD';
-}, true);
-mountainFormName.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-}, true);
-
-mountainFormEmail.addEventListener('input', event => {
-    console.log(event.srcElement.value);
-});
-mountainFormEmail.addEventListener('focusin', (event) => {
-    //console.log('this is focused');
-    event.target.style.background = '#FFEBCD';
-}, true);
-mountainFormEmail.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-}, true);
-
+mountainFormName.addEventListener('keyup', keyup);
+mountainFormName.addEventListener('focusin', focusin, true);
+mountainFormName.addEventListener('blur', blur, true);
+mountainFormEmail.addEventListener('keyup', keyup);
+mountainFormEmail.addEventListener('focusin', focusin, true);
+mountainFormEmail.addEventListener('blur', blur, true);
 
 const islandFormName = document.querySelector('#islandForm .formName');
 const islandFormEmail = document.querySelector('#islandForm .formEmail');
 
-islandFormName.addEventListener('keydown', event => {
-    console.log(event.key);
-});
-islandFormName.addEventListener('focusin', (event) => {
-    //console.log('this is focused');
-    event.target.style.background = '#FFEBCD';
-}, true);
-islandFormName.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-}, true);
-
-islandFormEmail.addEventListener('keydown', event => {
-    console.log(event.key);
-});
-islandFormEmail.addEventListener('focusin', (event) => {
-    //console.log('this is focused');
-    event.target.style.background = '#FFEBCD';
-}, true);
-islandFormEmail.addEventListener('blur', (event) => {
-    event.target.style.background = '';
-}, true);
+islandFormName.addEventListener('keyup', keyup);
+islandFormName.addEventListener('focusin', focusin, true);
+islandFormName.addEventListener('blur', blur, true);
+islandFormEmail.addEventListener('keyup', keyup);
+islandFormEmail.addEventListener('focusin', focusin, true);
+islandFormEmail.addEventListener('blur', blur, true);
 
 /////////////////////////////
 // CONTEXTMENU on container
