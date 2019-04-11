@@ -17,44 +17,25 @@
 
 ///////////////////////////////////////
 //MOUSEDOWN & MOUSEUP for navbar
-const navbar = document.querySelectorAll('a');
-const home = navbar[0];
-const aboutUs = navbar[1];
-const blog = navbar[2];
+const navbar = document.getElementsByTagName('a');
 const contact = navbar[3];
+
+Array.from(navbar).forEach(function(anchor){
+    anchor.addEventListener('mousedown', function(){
+        anchor.style.color = '#C0C0C0';
+    });
+});
+
+Array.from(navbar).forEach(function(anchor){
+    anchor.addEventListener('mouseup', function(){
+        anchor.style.color = '#212529';
+    });
+});
 
 aboutUs.href = 'https://lambdaschool.com/';
 blog.href = 'https://lambdaschool.com/courses/cs/web/';
 home.href = 'file:///C:/Users/lesle/Documents/CODE%20PROJECTS/DOM-II/index.html#'
 
-home.addEventListener('mousedown', event => { 
-    home.style.color = '#C0C0C0';
-    event.preventDefault();
-});
-home.addEventListener('mouseup', event => {
-    home.style.color = '#212529';
-});
-aboutUs.addEventListener('mousedown', event => {
-    aboutUs.style.color = '#C0C0C0';
-    event.preventDefault();
-});
-aboutUs.addEventListener('mouseup', event => {
-    aboutUs.style.color = '#212529';
-});
-blog.addEventListener('mousedown', event => {
-    blog.style.color = '#C0C0C0';
-});
-blog.addEventListener('mouseup', event => {
-    blog.style.color = '#212529';
-    event.preventDefault();
-});
-contact.addEventListener('mousedown', event => {
-    contact.style.color = '#C0C0C0';
-}); 
-contact.addEventListener('mouseup', event => {
-    contact.style.color = '#212529';
-    event.preventDefault();
-});  
 contact.addEventListener('mouseup', event => {
     alert('Contact us here anytime! funbus@email.com');
 });
@@ -62,38 +43,16 @@ contact.addEventListener('mouseup', event => {
 
 /////////////////////////////////////
 // MOUSEOVER & MOUSEOUT for image opacity and logo color
-const busImg = document.querySelector('.intro img');
-busImg.addEventListener('mouseover', event => {
-    //console.log('we have hover');
-    busImg.style.opacity = '0.5';
-    event.stopPropagation();
+const images = document.getElementsByTagName('img');
+Array.from(images).forEach(function(image) {
+    image.addEventListener('mouseover', function(){
+        image.style.opacity = '0.5';
+    });
 });
-busImg.addEventListener('mouseout', event => {
-    //console.log('we have hover');
-    busImg.style.opacity = '1.0';
-});
-
-const adventureImg = document.querySelector('.image-adventure');
-adventureImg.addEventListener('mouseover', event => {
-    // console.log('we have hover');
-    adventureImg.style.opacity = '0.5';
-    event.stopPropagation();
-});
-adventureImg.addEventListener('mouseout', event => {
-    //console.log('we have hover');
-    adventureImg.style.opacity = '1.0';
-});
-
-const canalImg = document.querySelector('.canal-image');
-
-canalImg.addEventListener('mouseover', event => {
-    //console.log('we have hover');
-    canalImg.style.opacity = '0.5';
-    event.stopPropagation();
-});
-canalImg.addEventListener('mouseout', event => {
-    //console.log('we have hover');
-    canalImg.style.opacity = '1.0';
+Array.from(images).forEach(function(image) {
+    image.addEventListener('mouseout', function(){
+        image.style.opacity = '1.0';
+    });
 });
 
 const headLogo = document.querySelector('.logo-heading');
